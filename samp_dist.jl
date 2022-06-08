@@ -40,12 +40,14 @@ samp_dist_E1 = gen_samp_dist(1234, Exponential(1), 1000000, 10, test_stats) # Ex
 
 ## Normal(1,1)
 
+default(fontfamily=plot_font, framestyle=:box, grid=false, border=:nothing, legendfontsize=10)
+
 # difference in means 
 my_hist = histogram(size=(600,600))
 fit_result1 = fit(Normal, samp_dist_N11[:,1]) # mean_diff
 histogram!(my_hist, samp_dist_N11[:,1], normalize =:pdf, label=latexstring("\\textit{difference\\;in\\;means}"), 
 fontfamily=plot_font, markerstrokecolor=:auto, c=1, lc=1)
-plot!(my_hist, fit_result1, label=latexstring("\\textit{Normal(0.0,0.20)}"), legend=:topright, linewidth=3)
+plot!(my_hist, fit_result1, label=latexstring("\\textit{Normal\\;pdf}"), legend=:topright, linewidth=3)
 yaxis!(my_hist, latexstring("\\textit{Probability\\;density\\;function}"), fontfamily=plot_font)
 default(fontfamily=plot_font, framestyle=:box, grid=false, border=:nothing, legendfontsize=10)
 savefig(my_hist, "samp_dist_N11_mean_diff10.pdf")
@@ -55,7 +57,7 @@ my_hist = histogram(size=(600,600))
 fit_result2 = fit(Normal, samp_dist_N11[:,2]) # median_diff
 histogram!(my_hist, samp_dist_N11[:,2], normalize =:pdf, label=latexstring("\\textit{difference\\;in\\;medians}"), 
 fontfamily=plot_font, markerstrokecolor=:auto, c=1, lc=1, binsize=1)
-plot!(my_hist, fit_result2, label=latexstring("\\textit{Normal(0.0,0.28)}"), legend=:topright, linewidth=3)
+plot!(my_hist, fit_result2, label=latexstring("\\textit{Normal\\;pdf}"), legend=:topright, linewidth=3)
 yaxis!(my_hist, latexstring("\\textit{Probability\\;density\\;function}"), fontfamily=plot_font)
 default(fontfamily=plot_font, framestyle=:box, grid=false, border=:nothing, legendfontsize=10)
 savefig(my_hist, "samp_dist_N11_median_diff10.pdf")
@@ -65,7 +67,7 @@ my_hist = histogram(size=(600,600))
 fit_result3 = fit(Normal, samp_dist_N11[:,3]) # quantile_diff
 histogram!(my_hist, samp_dist_N11[:,3], normalize =:pdf, label=latexstring("\\textit{difference\\,in\\,90th\\,percentiles}"), 
 fontfamily=plot_font, markerstrokecolor=:auto, c=1, lc=1, binsize=1)
-plot!(my_hist, fit_result3, label=latexstring("\\textit{Normal(-0.0,0.42)}"), legend=(0.6295, 0.989), linewidth=3)
+plot!(my_hist, fit_result3, label=latexstring("\\textit{Normal\\;pdf}"), legend=(0.6295, 0.989), linewidth=3)
 yaxis!(my_hist, latexstring("\\textit{Probability\\;density\\;function}"), fontfamily=plot_font)
 default(fontfamily=plot_font, framestyle=:box, grid=false, border=:nothing, legendfontsize=10)
 savefig(my_hist, "samp_dist_N11_90thpercentile_diff10.pdf")
@@ -75,7 +77,7 @@ my_hist = histogram(size=(600,600))
 fit_result4 = fit(Normal, samp_dist_N11[:,4]) # mean_ratio
 histogram!(my_hist, samp_dist_N11[:,4], normalize =:pdf, label=latexstring("\\textit{ratio\\;of\\;means}"), 
 fontfamily=plot_font, markerstrokecolor=:auto, c=1, lc=1, binsize=1)
-plot!(my_hist, fit_result4, label=latexstring("\\textit{Normal(1.0,3293)}"), legend=:topleft, linewidth=3)
+plot!(my_hist, fit_result4, label=latexstring("\\textit{Normal\\;pdf}"), legend=:topleft, linewidth=3)
 yaxis!(my_hist, latexstring("\\textit{Probability\\;density\\;function}"), fontfamily=plot_font)
 default(fontfamily=plot_font, framestyle=:box, grid=false, border=:nothing, legendfontsize=10)
 savefig(my_hist, "samp_dist_N11_mean_ratio10.pdf")
@@ -85,7 +87,7 @@ my_hist = histogram(size=(600,600))
 fit_result5 = fit(Normal, samp_dist_N11[:,5]) # var_diff
 histogram!(my_hist, samp_dist_N11[:,5], normalize =:pdf, label=latexstring("\\textit{difference\\;in\\;variances}"), 
 fontfamily=plot_font, markerstrokecolor=:auto, c=1, lc=1, binsize=1)
-plot!(my_hist, fit_result5, label=latexstring("\\textit{Normal(-0.0,0.45)}"), legend=:topright, linewidth=3)
+plot!(my_hist, fit_result5, label=latexstring("\\textit{Normal\\;pdf}"), legend=:topright, linewidth=3)
 yaxis!(my_hist, latexstring("\\textit{Probability\\;density\\;function}"), fontfamily=plot_font)
 default(fontfamily=plot_font, framestyle=:box, grid=false, border=:nothing, legendfontsize=10)
 savefig(my_hist, "samp_dist_N11_var_diff10.pdf")
@@ -95,7 +97,7 @@ my_hist = histogram(size=(600,600))
 fit_result6 = fit(Normal, samp_dist_N11[:,6]) # var_ratio
 histogram!(my_hist, samp_dist_N11[:,6], normalize =:pdf, label=latexstring("\\textit{ratio\\;of\\;variances}"), 
 fontfamily=plot_font, markerstrokecolor=:auto, c=1, lc=1, binsize=1)
-plot!(my_hist, fit_result6, label=latexstring("\\textit{Normal(1.0,1.16)}"), legend=:topright, linewidth=3)
+plot!(my_hist, fit_result6, label=latexstring("\\textit{Normal\\;pdf}"), legend=:topright, linewidth=3)
 yaxis!(my_hist, latexstring("\\textit{Probability\\;density\\;function}"), fontfamily=plot_font)
 default(fontfamily=plot_font, framestyle=:box, grid=false, border=:nothing, legendfontsize=10)
 savefig(my_hist, "samp_dist_N11_var_ratio10.pdf")
@@ -106,7 +108,7 @@ my_hist = histogram(size=(600,600))
 fit_result7 = fit(Normal, samp_dist_N01[:,1]) # mean_ratio
 histogram!(my_hist, samp_dist_N11[:,4], normalize =:pdf, label=latexstring("\\textit{ratio\\;of\\;means}"), 
 fontfamily=plot_font, markerstrokecolor=:auto, c=1, lc=1, binsize=1)
-plot!(my_hist, fit_result7, label=latexstring("\\textit{Normal(1.4,2096245.31)}"), legend=:topleft, linewidth=3)
+plot!(my_hist, fit_result7, label=latexstring("\\textit{Normal\\;pdf}"), legend=:topleft, linewidth=3)
 yaxis!(my_hist, latexstring("\\textit{Probability\\;density\\;function}"), fontfamily=plot_font)
 default(fontfamily=plot_font, linewidth=1, framestyle=:box, grid=false, border=:nothing, legendfontsize=10)
 savefig(my_hist, "samp_dist_N01_mean_ratio10.pdf")
@@ -118,7 +120,7 @@ my_hist = histogram(size=(600,600))
 fit_result8 = fit(Normal, samp_dist_E1[:,1]) # mean_diff
 histogram!(my_hist, samp_dist_E1[:,1],  normalize =:pdf, label=latexstring("\\textit{difference\\;in\\;means}"), 
 fontfamily=plot_font, markerstrokecolor=:auto, c=1, lc=1, binsize=1)
-plot!(my_hist, fit_result8, label=latexstring("\\textit{Normal(-0.0,0.20)}"), legend=:topright, linewidth=3)
+plot!(my_hist, fit_result8, label=latexstring("\\textit{Normal\\;pdf}"), legend=:topright, linewidth=3)
 yaxis!(my_hist, latexstring("\\textit{Probability\\;density\\;function}"), fontfamily=plot_font)
 default(fontfamily=plot_font, framestyle=:box, grid=false, border=:nothing, legendfontsize=10)
 savefig(my_hist, "samp_dist_E1_mean_diff10.pdf")
@@ -128,7 +130,7 @@ my_hist = histogram(size=(600,600))
 fit_result9 = fit(Normal, samp_dist_E1[:,2]) # median_diff
 histogram!(my_hist, samp_dist_E1[:,2], normalize =:pdf, label=latexstring("\\textit{difference\\;in\\;medians}"), 
 fontfamily=plot_font, markerstrokecolor=:auto, c=1, lc=1, binsize=1)
-plot!(my_hist, fit_result9, label=latexstring("\\textit{Normal(-0.0,0.20)}"), legend=:topright, linewidth=3)
+plot!(my_hist, fit_result9, label=latexstring("\\textit{Normal\\;pdf}"), legend=:topright, linewidth=3)
 yaxis!(my_hist, latexstring("\\textit{Probability\\;density\\;function}"), fontfamily=plot_font)
 default(fontfamily=plot_font, framestyle=:box, grid=false, border=:nothing, legendfontsize=10)
 savefig(my_hist, "samp_dist_E1_median_diff10.pdf")
@@ -138,7 +140,7 @@ my_hist = histogram(size=(600,600))
 fit_result10 = fit(Normal, samp_dist_E1[:,3]) # quantile_diff
 histogram!(my_hist, samp_dist_E1[:,3], normalize =:pdf, label=latexstring("\\textit{difference\\;in\\;90th\\;percentiles}"), 
 fontfamily=plot_font, markerstrokecolor=:auto, c=1, lc=1, binsize=1)
-plot!(my_hist, fit_result10, label=latexstring("\\textit{Normal(0.0,1.12)}"), legend=(0.62, 0.985), linewidth=3)
+plot!(my_hist, fit_result10, label=latexstring("\\textit{Normal\\;pdf}"), legend=(0.62, 0.985), linewidth=3)
 yaxis!(my_hist, latexstring("\\textit{Probability\\;density\\;function}"), fontfamily=plot_font)
 default(fontfamily=plot_font, framestyle=:box, grid=false, border=:nothing, legendfontsize=10)
 savefig(my_hist, "samp_dist_E1_90thpercentile_diff10.pdf")
@@ -148,7 +150,7 @@ my_hist = histogram(size=(600,600))
 fit_result11 = fit(Normal, samp_dist_E1[:,4]) # mean_ratio
 histogram!(my_hist, samp_dist_E1[:,4], normalize =:pdf, label=latexstring("\\textit{ratio\\;of\\;means}"), 
 fontfamily=plot_font, markerstrokecolor=:auto, c=1, lc=1, binsize=1)
-plot!(my_hist, fit_result11, label=latexstring("\\textit{Normal(1.0,0.30)}"), legend=:topright, linewidth=3)
+plot!(my_hist, fit_result11, label=latexstring("\\textit{Normal\\;pdf}"), legend=:topright, linewidth=3)
 yaxis!(my_hist, latexstring("\\textit{Probability\\;density\\;function}"), fontfamily=plot_font)
 default(fontfamily=plot_font, framestyle=:box, grid=false, border=:nothing, legendfontsize=10)
 savefig(my_hist, "samp_dist_E1_mean_ratio10.pdf")
@@ -158,7 +160,7 @@ my_hist = histogram(size=(600,600))
 fit_result12 = fit(Normal, samp_dist_E1[:,5]) # var_diff
 histogram!(my_hist, samp_dist_E1[:,5], normalize =:pdf, label=latexstring("\\textit{difference\\;in\\;variances}"), 
 fontfamily=plot_font, markerstrokecolor=:auto, c=1, lc=1, binsize=1)
-plot!(my_hist, fit_result12, label=latexstring("\\textit{Normal(-0.0,1.64)}"), legend=:topright, linewidth=3)
+plot!(my_hist, fit_result12, label=latexstring("\\textit{Normal\\;pdf}"), legend=:topright, linewidth=3)
 yaxis!(my_hist, latexstring("\\textit{Probability\\;density\\;function}"), fontfamily=plot_font)
 default(fontfamily=plot_font, framestyle=:box, grid=false, border=:nothing, legendfontsize=10)
 savefig(my_hist, "samp_dist_E1_var_diff10.pdf")
@@ -168,7 +170,7 @@ my_hist = histogram(size=(600,600))
 fit_result13 = fit(Normal, samp_dist_E1[:,6]) # var_ratio
 histogram!(my_hist, samp_dist_E1[:,6], normalize =:pdf, label=latexstring("\\textit{ratio\\;of\\;variances}"), 
 fontfamily=plot_font, markerstrokecolor=:auto, c=1, lc=1, binsize=1)
-plot!(my_hist, fit_result13, label=latexstring("\\textit{Normal(1.0,12.08)}"), legend=:topright, linewidth=3)
+plot!(my_hist, fit_result13, label=latexstring("\\textit{Normal\\;pdf}"), legend=:topright, linewidth=3)
 yaxis!(my_hist, latexstring("\\textit{Probability\\;density\\;function}"), fontfamily=plot_font)
 default(fontfamily=plot_font, framestyle=:box, grid=false, border=:nothing, legendfontsize=10)
 savefig(my_hist, "samp_dist_E1_var_ratio10.pdf")
@@ -186,7 +188,7 @@ my_hist = histogram(size=(600,600))
 fit_result1 = fit(Normal, samp_dist_N11[:,1]) # mean_diff
 histogram!(my_hist, samp_dist_N11[:,1], normalize =:pdf, label=latexstring("\\textit{difference\\;in\\;means}"), 
 fontfamily=plot_font, markerstrokecolor=:auto, c=1, lc=1, binsize=1)
-plot!(my_hist, fit_result1, label=latexstring("\\textit{Normal(0.0, 0.02)}"), legend=:topright, linewidth=3)
+plot!(my_hist, fit_result1, label=latexstring("\\textit{Normal\\;pdf}"), legend=:topright, linewidth=3)
 yaxis!(my_hist, latexstring("\\textit{Probability\\;density\\;function}"), fontfamily=plot_font)
 default(fontfamily=plot_font, framestyle=:box, grid=false, border=:nothing, legendfontsize=10)
 savefig(my_hist, "samp_dist_N11_mean_diff100.pdf")
@@ -196,7 +198,7 @@ my_hist = histogram(size=(600,600))
 fit_result2 = fit(Normal, samp_dist_N11[:,2]) # median_diff
 histogram!(my_hist, samp_dist_N11[:,2], normalize =:pdf, label=latexstring("\\textit{difference\\;in\\;medians}"), 
 fontfamily=plot_font, markerstrokecolor=:auto, c=1, lc=1, binsize=1)
-plot!(my_hist, fit_result2, label=latexstring("\\textit{Normal(0.0, 0.03)}"), legend=:topright, linewidth=3)
+plot!(my_hist, fit_result2, label=latexstring("\\textit{Normal\\;pdf}"), legend=:topright, linewidth=3)
 yaxis!(my_hist, latexstring("\\textit{Probability\\;density\\;function}"), fontfamily=plot_font)
 default(fontfamily=plot_font, framestyle=:box, grid=false, border=:nothing, legendfontsize=10)
 savefig(my_hist, "samp_dist_N11_median_diff100.pdf")
@@ -206,7 +208,7 @@ my_hist = histogram(size=(600,600))
 fit_result3 = fit(Normal, samp_dist_N11[:,3]) # quantile_diff
 histogram!(my_hist, samp_dist_N11[:,3], normalize =:pdf, label=latexstring("\\textit{difference\\;in\\;90th\\;percentiles}"), 
 fontfamily=plot_font, markerstrokecolor=:auto, c=1, lc=1, binsize=1)
-plot!(my_hist, fit_result3, label=latexstring("\\textit{Normal(-0.0, 0.056)}"), legend=(0.62, 0.985), linewidth=3)
+plot!(my_hist, fit_result3, label=latexstring("\\textit{Normal\\;pdf}"), legend=(0.62, 0.985), linewidth=3)
 yaxis!(my_hist, latexstring("\\textit{Probability\\;density\\;function}"), fontfamily=plot_font)
 default(fontfamily=plot_font, framestyle=:box, grid=false, border=:nothing, legendfontsize=10)
 savefig(my_hist, "samp_dist_N11_90thpercentile_diff100.pdf")
@@ -216,7 +218,7 @@ my_hist = histogram(size=(600,600))
 fit_result4 = fit(Normal, samp_dist_N11[:,4]) # mean_ratio
 histogram!(my_hist, samp_dist_N11[:,4], normalize =:pdf, label=latexstring("\\textit{ratio\\;of\\;means}"), 
 fontfamily=plot_font, markerstrokecolor=:auto, c=1, lc=1, binsize=1)
-plot!(my_hist, fit_result4, label=latexstring("\\textit{Normal(1.0, 0.02)}"), legend=:topright, linewidth=3)
+plot!(my_hist, fit_result4, label=latexstring("\\textit{Normal\\;pdf}"), legend=:topright, linewidth=3)
 yaxis!(my_hist, latexstring("\\textit{Probability\\;density\\;function}"), fontfamily=plot_font)
 default(fontfamily=plot_font, framestyle=:box, grid=false, border=:nothing, legendfontsize=10)
 savefig(my_hist, "samp_dist_N11_mean_ratio100.pdf")
@@ -226,7 +228,7 @@ my_hist = histogram(size=(600,600))
 fit_result5 = fit(Normal, samp_dist_N11[:,5]) # var_diff
 histogram!(my_hist, samp_dist_N11[:,5], normalize =:pdf, label=latexstring("\\textit{difference\\;in\\;variances}"), 
 fontfamily=plot_font, markerstrokecolor=:auto, c=1, lc=1, binsize=1)
-plot!(my_hist, fit_result5, label=latexstring("\\textit{Normal(0.0, 0.04)}"), legend=:topright, linewidth=3)
+plot!(my_hist, fit_result5, label=latexstring("\\textit{Normal\\;pdf}"), legend=:topright, linewidth=3)
 yaxis!(my_hist, latexstring("\\textit{Probability\\;density\\;function}"), fontfamily=plot_font)
 default(fontfamily=plot_font, framestyle=:box, grid=false, border=:nothing, legendfontsize=10)
 savefig(my_hist, "samp_dist_N11_var_diff100.pdf")
@@ -236,7 +238,7 @@ my_hist = histogram(size=(600,600))
 fit_result6 = fit(Normal, samp_dist_N11[:,6]) # var_ratio
 histogram!(my_hist, samp_dist_N11[:,6], normalize =:pdf, label=latexstring("\\textit{ratio\\;of\\;variances}"), 
 fontfamily=plot_font, markerstrokecolor=:auto, c=1, lc=1, binsize=1)
-plot!(my_hist, fit_result6, label=latexstring("\\textit{Normal(1.0, 0.043)}"), legend=:topright, linewidth=3)
+plot!(my_hist, fit_result6, label=latexstring("\\textit{Normal\\;pdf}"), legend=:topright, linewidth=3)
 yaxis!(my_hist, latexstring("\\textit{Probability\\;density\\;function}"), fontfamily=plot_font)
 default(fontfamily=plot_font, framestyle=:box, grid=false, border=:nothing, legendfontsize=10)
 savefig(my_hist, "samp_dist_N11_var_ratio100.pdf")
@@ -247,7 +249,7 @@ my_hist = histogram(size=(600,600))
 fit_result7 = fit(Normal, samp_dist_N01[:,1]) # mean_ratio
 histogram!(my_hist, samp_dist_N11[:,4], normalize =:pdf, label=latexstring("\\textit{ratio\\;of\\;means}"), 
 fontfamily=plot_font, markerstrokecolor=:auto, c=1, lc=1, binsize=1)
-plot!(my_hist, fit_result7, label=latexstring("\\textit{Normal(6.1,27900025)}"), legend=:topleft, linewidth=3)
+plot!(my_hist, fit_result7, label=latexstring("\\textit{Normal\\;pdf}"), legend=:topleft, linewidth=3)
 yaxis!(my_hist, latexstring("\\textit{Probability\\;density\\;function}"), fontfamily=plot_font)
 default(fontfamily=plot_font, linewidth=1, framestyle=:box, grid=false, border=:nothing, legendfontsize=10)
 savefig(my_hist, "samp_dist_N01_mean_ratio100.pdf")
@@ -259,7 +261,7 @@ my_hist = histogram(size=(600,600))
 fit_result8 = fit(Normal, samp_dist_E1[:,1]) # mean_diff
 histogram!(my_hist, samp_dist_E1[:,1],  normalize =:pdf, label=latexstring("\\textit{difference\\;in\\;means}"), 
 fontfamily=plot_font, markerstrokecolor=:auto, c=1, lc=1, binsize=1)
-plot!(my_hist, fit_result8, label=latexstring("\\textit{Normal(-0.0, 0.02)}"), legend=:topright, linewidth=3)
+plot!(my_hist, fit_result8, label=latexstring("\\textit{Normal\\;pdf}"), legend=:topright, linewidth=3)
 yaxis!(my_hist, latexstring("\\textit{Probability\\;density\\;function}"), fontfamily=plot_font)
 default(fontfamily=plot_font, framestyle=:box, grid=false, border=:nothing, legendfontsize=10)
 savefig(my_hist, "samp_dist_E1_mean_diff100.pdf")
@@ -269,7 +271,7 @@ my_hist = histogram(size=(600,600))
 fit_result9 = fit(Normal, samp_dist_E1[:,2]) # median_diff
 histogram!(my_hist, samp_dist_E1[:,2], normalize =:pdf, label=latexstring("\\textit{difference\\;in\\;medians}"), 
 fontfamily=plot_font, markerstrokecolor=:auto, c=1, lc=1, binsize=1)
-plot!(my_hist, fit_result9, label=latexstring("\\textit{Normal(-0.0,0.02)}"), legend=:topright, linewidth=3)
+plot!(my_hist, fit_result9, label=latexstring("\\textit{Normal\\;pdf}"), legend=:topright, linewidth=3)
 yaxis!(my_hist, latexstring("\\textit{Probability\\;density\\;function}"), fontfamily=plot_font)
 default(fontfamily=plot_font, framestyle=:box, grid=false, border=:nothing, legendfontsize=10)
 savefig(my_hist, "samp_dist_E1_median_diff100.pdf")
@@ -279,7 +281,7 @@ my_hist = histogram(size=(600,600))
 fit_result10 = fit(Normal, samp_dist_E1[:,3]) # quantile_diff
 histogram!(my_hist, samp_dist_E1[:,3], normalize =:pdf, label=latexstring("\\textit{difference\\;in\\;90th\\;percentiles}"), 
 fontfamily=plot_font, markerstrokecolor=:auto, c=1, lc=1, binsize=1)
-plot!(my_hist, fit_result10, label=latexstring("\\textit{Normal(0.0, 0.17)}"), legend=(0.615, 0.985), linewidth=3)
+plot!(my_hist, fit_result10, label=latexstring("\\textit{Normal\\;pdf}"), legend=(0.615, 0.985), linewidth=3)
 yaxis!(my_hist, latexstring("\\textit{Probability\\;density\\;function}"), fontfamily=plot_font)
 default(fontfamily=plot_font, framestyle=:box, grid=false, border=:nothing, legendfontsize=10)
 savefig(my_hist, "samp_dist_E1_90thpercentile_diff100.pdf")
@@ -289,7 +291,7 @@ my_hist = histogram(size=(600,600))
 fit_result11 = fit(Normal, samp_dist_E1[:,4]) # mean_ratio
 histogram!(my_hist, samp_dist_E1[:,4], normalize =:pdf, label=latexstring("\\textit{ratio\\;of\\;means}"), 
 fontfamily=plot_font, markerstrokecolor=:auto, c=1, lc=1, binsize=1)
-plot!(my_hist, fit_result11, label=latexstring("\\textit{Normal(1.0, 0.021)}"), legend=:topright, linewidth=3)
+plot!(my_hist, fit_result11, label=latexstring("\\textit{Normal\\;pdf}"), legend=:topright, linewidth=3)
 yaxis!(my_hist, latexstring("\\textit{Probability\\;density\\;function}"), fontfamily=plot_font)
 default(fontfamily=plot_font, framestyle=:box, grid=false, border=:nothing, legendfontsize=10)
 savefig(my_hist, "samp_dist_E1_mean_ratio100.pdf")
@@ -299,7 +301,7 @@ my_hist = histogram(size=(600,600))
 fit_result12 = fit(Normal, samp_dist_E1[:,5]) # var_diff
 histogram!(my_hist, samp_dist_E1[:,5], normalize =:pdf, label=latexstring("\\textit{difference\\;in\\;variances}"), 
 fontfamily=plot_font, markerstrokecolor=:auto, c=1, lc=1, binsize=1)
-plot!(my_hist, fit_result12, label=latexstring("\\textit{Normal(0.0, 0.16)}"), legend=:topright, linewidth=3)
+plot!(my_hist, fit_result12, label=latexstring("\\textit{Normal\\;pdf}"), legend=:topright, linewidth=3)
 yaxis!(my_hist, latexstring("\\textit{Probability\\;density\\;function}"), fontfamily=plot_font)
 default(fontfamily=plot_font, framestyle=:box, grid=false, border=:nothing, legendfontsize=10)
 savefig(my_hist, "samp_dist_E1_var_diff100.pdf")
@@ -309,7 +311,7 @@ my_hist = histogram(size=(600,600))
 fit_result13 = fit(Normal, samp_dist_E1[:,6]) # var_ratio
 histogram!(my_hist, samp_dist_E1[:,6], normalize =:pdf, label=latexstring("\\textit{ratio\\;of\\;variances}"), 
 fontfamily=plot_font, markerstrokecolor=:auto, c=1, lc=1, binsize=1)
-plot!(my_hist, fit_result13, label=latexstring("\\textit{Normal(1.1, 0.192)}"), legend=:topright, linewidth=3)
+plot!(my_hist, fit_result13, label=latexstring("\\textit{Normal\\;pdf}"), legend=:topright, linewidth=3)
 yaxis!(my_hist, latexstring("\\textit{Probability\\;density\\;function}"), fontfamily=plot_font)
 default(fontfamily=plot_font, framestyle=:box, grid=false, border=:nothing, legendfontsize=10)
 savefig(my_hist, "samp_dist_E1_var_ratio100.pdf")
@@ -327,7 +329,7 @@ my_hist = histogram(size=(600,600))
 fit_result1 = fit(Normal, samp_dist_N11[:,1]) # mean_diff
 histogram!(my_hist, samp_dist_N11[:,1], bins = 1000, normalize =:pdf, label=latexstring("\\textit{difference\\;in\\;means}"), 
 fontfamily=plot_font, markerstrokecolor=:auto, c=1, lc=1, binsize=1)
-plot!(my_hist, fit_result1, label=latexstring("\\textit{Normal(0.0, 0.002)}"), legend=:topright, linewidth=3)
+plot!(my_hist, fit_result1, label=latexstring("\\textit{Normal\\;pdf}"), legend=:topright, linewidth=3)
 yaxis!(my_hist, latexstring("\\textit{Probability\\;density\\;function}"), fontfamily=plot_font)
 default(fontfamily=plot_font, framestyle=:box, grid=false, border=:nothing, legendfontsize=10)
 savefig(my_hist, "samp_dist_N11_mean_diff1000.pdf")
@@ -337,7 +339,7 @@ my_hist = histogram(size=(600,600))
 fit_result2 = fit(Normal, samp_dist_N11[:,2]) # median_diff
 histogram!(my_hist, samp_dist_N11[:,2], normalize =:pdf, label=latexstring("\\textit{difference\\;in\\;medians}"), 
 fontfamily=plot_font, markerstrokecolor=:auto, c=1, lc=1, binsize=1)
-plot!(my_hist, fit_result2, label=latexstring("\\textit{Normal(0.0, 0.003)}"), legend=:topright, linewidth=3)
+plot!(my_hist, fit_result2, label=latexstring("\\textit{Normal\\;pdf}"), legend=:topright, linewidth=3)
 yaxis!(my_hist, latexstring("\\textit{Probability\\;density\\;function}"), fontfamily=plot_font)
 default(fontfamily=plot_font, framestyle=:box, grid=false, border=:nothing, legendfontsize=10)
 savefig(my_hist, "samp_dist_N11_median_diff1000.pdf")
@@ -347,7 +349,7 @@ my_hist = histogram(size=(600,600))
 fit_result3 = fit(Normal, samp_dist_N11[:,3]) # quantile_diff
 histogram!(my_hist, samp_dist_N11[:,3], normalize =:pdf, label=latexstring("\\textit{difference\\;in\\;90th\\;percentiles}"), 
 fontfamily=plot_font, markerstrokecolor=:auto, c=1, lc=1, binsize=1)
-plot!(my_hist, fit_result3, label=latexstring("\\textit{Normal(-0.0, 0.006)}"), legend=(0.62, 0.985), linewidth=3)
+plot!(my_hist, fit_result3, label=latexstring("\\textit{Normal\\;pdf}"), legend=(0.62, 0.985), linewidth=3)
 yaxis!(my_hist, latexstring("\\textit{Probability\\;density\\;function}"), fontfamily=plot_font)
 default(fontfamily=plot_font, framestyle=:box, grid=false, border=:nothing, legendfontsize=10)
 savefig(my_hist, "samp_dist_N11_90thpercentile_diff1000.pdf")
@@ -357,7 +359,7 @@ my_hist = histogram(size=(600,600))
 fit_result4 = fit(Normal, samp_dist_N11[:,4]) # mean_ratio
 histogram!(my_hist, samp_dist_N11[:,4], normalize =:pdf, label=latexstring("\\textit{ratio\\;of\\;means}"), 
 fontfamily=plot_font, markerstrokecolor=:auto, c=1, lc=1, binsize=1)
-plot!(my_hist, fit_result4, label=latexstring("\\textit{Normal(1.001, 0.002)}"), legend=:topright, linewidth=3)
+plot!(my_hist, fit_result4, label=latexstring("\\textit{Normal\\;pdf}"), legend=:topright, linewidth=3)
 yaxis!(my_hist, latexstring("\\textit{Probability\\;density\\;function}"), fontfamily=plot_font)
 default(fontfamily=plot_font, framestyle=:box, grid=false, border=:nothing, legendfontsize=10)
 savefig(my_hist, "samp_dist_N11_mean_ratio1000.pdf")
@@ -367,7 +369,7 @@ my_hist = histogram(size=(600,600))
 fit_result5 = fit(Normal, samp_dist_N11[:,5]) # var_diff
 histogram!(my_hist, samp_dist_N11[:,5], normalize =:pdf, label=latexstring("\\textit{difference\\;in\\;variances}"), 
 fontfamily=plot_font, markerstrokecolor=:auto, c=1, lc=1, binsize=1)
-plot!(my_hist, fit_result5, label=latexstring("\\textit{Normal(-0.0, 0.004)}"), legend=:topright, linewidth=3)
+plot!(my_hist, fit_result5, label=latexstring("\\textit{Normal\\;pdf}"), legend=:topright, linewidth=3)
 yaxis!(my_hist, latexstring("\\textit{Probability\\;density\\;function}"), fontfamily=plot_font)
 default(fontfamily=plot_font, framestyle=:box, grid=false, border=:nothing, legendfontsize=10)
 savefig(my_hist, "samp_dist_N11_var_diff1000.pdf")
@@ -377,7 +379,7 @@ my_hist = histogram(size=(600,600))
 fit_result6 = fit(Normal, samp_dist_N11[:,6]) # var_ratio
 histogram!(my_hist, samp_dist_N11[:,6], normalize =:pdf, label=latexstring("\\textit{ratio\\;of\\;variances}"), 
 fontfamily=plot_font, markerstrokecolor=:auto, c=1, lc=1, binsize=1)
-plot!(my_hist, fit_result6, label=latexstring("\\textit{Normal(1.0, 0.004)}"), legend=:topright, linewidth=3)
+plot!(my_hist, fit_result6, label=latexstring("\\textit{Normal\\;pdf}"), legend=:topright, linewidth=3)
 yaxis!(my_hist, latexstring("\\textit{Probability\\;density\\;function}"), fontfamily=plot_font)
 default(fontfamily=plot_font, framestyle=:box, grid=false, border=:nothing, legendfontsize=10)
 savefig(my_hist, "samp_dist_N11_var_ratio1000.pdf")
@@ -388,7 +390,7 @@ my_hist = histogram(size=(600,600))
 fit_result7 = fit(Normal, samp_dist_N01[:,1]) # mean_ratio
 histogram!(my_hist, samp_dist_N11[:,4], normalize =:pdf, label=latexstring("\\textit{ratio\\;of\\;means}"), 
 fontfamily=plot_font, markerstrokecolor=:auto, c=1, lc=1, binsize=1)
-plot!(my_hist, fit_result7, label=latexstring("\\textit{Normal(1.14, 390909)}"), legend=:topleft, linewidth=3)
+plot!(my_hist, fit_result7, label=latexstring("\\textit{Normal\\;pdf}"), legend=:topleft, linewidth=3)
 yaxis!(my_hist, latexstring("\\textit{Probability\\;density\\;function}"), fontfamily=plot_font)
 default(fontfamily=plot_font, framestyle=:box, grid=false, border=:nothing, legendfontsize=10)
 savefig(my_hist, "samp_dist_N01_mean_ratio1000.pdf")
@@ -400,7 +402,7 @@ my_hist = histogram(size=(600,600))
 fit_result8 = fit(Normal, samp_dist_E1[:,1]) # mean_diff
 histogram!(my_hist, samp_dist_E1[:,1],  normalize =:pdf, label=latexstring("\\textit{difference\\;in\\;means}"), 
 fontfamily=plot_font, markerstrokecolor=:auto, c=1, lc=1, binsize=1)
-plot!(my_hist, fit_result8, label=latexstring("\\textit{Normal(-0.0, 0.002)}"), legend=:topright, linewidth=3)
+plot!(my_hist, fit_result8, label=latexstring("\\textit{Normal\\;pdf}"), legend=:topright, linewidth=3)
 yaxis!(my_hist, latexstring("\\textit{Probability\\;density\\;function}"), fontfamily=plot_font)
 default(fontfamily=plot_font, framestyle=:box, grid=false, border=:nothing, legendfontsize=10)
 savefig(my_hist, "samp_dist_E1_mean_diff1000.pdf")
@@ -410,7 +412,7 @@ my_hist = histogram(size=(600,600))
 fit_result9 = fit(Normal, samp_dist_E1[:,2]) # median_diff
 histogram!(my_hist, samp_dist_E1[:,2], normalize =:pdf, label=latexstring("\\textit{difference\\;in\\;medians}"), 
 fontfamily=plot_font, markerstrokecolor=:auto, c=1, lc=1, binsize=1)
-plot!(my_hist, fit_result9, label=latexstring("\\textit{Normal(-0.0,0.002)}"), legend=:topleft, linewidth=3)
+plot!(my_hist, fit_result9, label=latexstring("\\textit{Normal\\;pdf}"), legend=:topleft, linewidth=3)
 yaxis!(my_hist, latexstring("\\textit{Probability\\;density\\;function}"), fontfamily=plot_font)
 default(fontfamily=plot_font, framestyle=:box, grid=false, border=:nothing, legendfontsize=10)
 savefig(my_hist, "samp_dist_E1_median_diff1000.pdf")
@@ -420,7 +422,7 @@ my_hist = histogram(size=(600,600))
 fit_result10 = fit(Normal, samp_dist_E1[:,3]) # quantile_diff
 histogram!(my_hist, samp_dist_E1[:,3], normalize =:pdf, label=latexstring("\\textit{difference\\;in\\;90th\\;percentiles}"), 
 fontfamily=plot_font, markerstrokecolor=:auto, c=1, lc=1, binsize=1)
-plot!(my_hist, fit_result10, label=latexstring("\\textit{Normal(0.0, 0.018)}"), legend=(0.63, 0.985), linewidth=3)
+plot!(my_hist, fit_result10, label=latexstring("\\textit{Normal\\;pdf}"), legend=(0.63, 0.985), linewidth=3)
 yaxis!(my_hist, latexstring("\\textit{Probability\\;density\\;function}"), fontfamily=plot_font)
 default(fontfamily=plot_font, framestyle=:box, grid=false, border=:nothing, legendfontsize=10)
 savefig(my_hist, "samp_dist_E1_90thpercentile_diff1000.pdf")
@@ -430,7 +432,7 @@ my_hist = histogram(size=(600,600))
 fit_result11 = fit(Normal, samp_dist_E1[:,4]) # mean_ratio
 histogram!(my_hist, samp_dist_E1[:,4], normalize =:pdf, label=latexstring("\\textit{ratio\\;of\\;means}"), 
 fontfamily=plot_font, markerstrokecolor=:auto, c=1, lc=1, binsize=1)
-plot!(my_hist, fit_result11, label=latexstring("\\textit{Normal(1.0, 0.002)}"), legend=:topright, linewidth=3)
+plot!(my_hist, fit_result11, label=latexstring("\\textit{Normal\\;pdf}"), legend=:topright, linewidth=3)
 yaxis!(my_hist, latexstring("\\textit{Probability\\;density\\;function}"), fontfamily=plot_font)
 default(fontfamily=plot_font, framestyle=:box, grid=false, border=:nothing, legendfontsize=10)
 savefig(my_hist, "samp_dist_E1_mean_ratio1000.pdf")
@@ -440,7 +442,7 @@ my_hist = histogram(size=(600,600))
 fit_result12 = fit(Normal, samp_dist_E1[:,5]) # var_diff
 histogram!(my_hist, samp_dist_E1[:,5], normalize =:pdf, label=latexstring("\\textit{difference\\;in\\;variances}"), 
 fontfamily=plot_font, markerstrokecolor=:auto, c=1, lc=1, binsize=1)
-plot!(my_hist, fit_result12, label=latexstring("\\textit{Normal(-0.0, 0.016)}"), legend=:topright, linewidth=3)
+plot!(my_hist, fit_result12, label=latexstring("\\textit{Normal\\;pdf}"), legend=:topright, linewidth=3)
 yaxis!(my_hist, latexstring("\\textit{Probability\\;density\\;function}"), fontfamily=plot_font)
 default(fontfamily=plot_font, framestyle=:box, grid=false, border=:nothing, legendfontsize=10)
 savefig(my_hist, "samp_dist_E1_var_diff1000.pdf")
@@ -450,7 +452,7 @@ my_hist = histogram(size=(600,600))
 fit_result13 = fit(Normal, samp_dist_E1[:,6]) # var_ratio
 histogram!(my_hist, samp_dist_E1[:,6], normalize =:true, label=latexstring("\\textit{ratio\\;of\\;variances}"), 
 fontfamily=plot_font, markerstrokecolor=:auto, c=1, lc=1, binsize=1)
-plot!(my_hist, fit_result13, label=latexstring("\\textit{Normal(1.008, 0.016)}"), legend=:topright, linewidth=3)
+plot!(my_hist, fit_result13, label=latexstring("\\textit{Normal\\;pdf}"), legend=:topright, linewidth=3)
 yaxis!(my_hist, latexstring("\\textit{Probability\\;density\\;function}"), fontfamily=plot_font)
 default(fontfamily=plot_font, framestyle=:box, grid=false, border=:nothing, legendfontsize=10)
 savefig(my_hist, "samp_dist_E1_var_ratio1000.pdf")
